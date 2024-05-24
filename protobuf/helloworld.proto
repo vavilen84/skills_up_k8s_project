@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package helloworld;
+
+option go_package = "github.com/vavilen84/skills_up_k8s_project/protobuf/helloworld";
+
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}

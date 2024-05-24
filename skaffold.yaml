@@ -1,0 +1,23 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: skills_up_k8s_project
+build:
+  artifacts:
+    - image: service1
+      context: .
+      docker:
+        dockerfile: service1/Dockerfile
+    - image: service2
+      context: .
+      docker:
+        dockerfile: service2/Dockerfile
+deploy:
+  helm:
+    releases:
+      - name: service1
+        chartPath: charts/service1
+        repo: service1
+      - name: service2
+        chartPath: charts/service2
+        repo: service2
